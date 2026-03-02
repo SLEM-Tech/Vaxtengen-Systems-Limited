@@ -194,7 +194,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex gap-4 sm:gap-8 w-full pt-3">
+          <div className="grid grid-cols-2 gap-4 sm:gap-8 w-full pt-3">
             {footerData.map((section, index) => (
               <div
                 key={index}
