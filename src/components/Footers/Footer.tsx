@@ -128,21 +128,12 @@ const Footer = () => {
       <div className="mx-auto max-w-[1400px] w-full hidden slg:block">
         <section className="flex justify-center gap-16 mt-2">
           <div className="flex flex-col gap-4 w-[80%]">
-            <LogoImage className="!w-[20px] lg:!w-[30px] rounded-sm" />
-
-            <div className="flex gap-1">
-              {footer1socialMediaIcons.map((item, index) => (
-                <motion.a
-                  href={item.link}
-                  key={index}
-                  className={`p-1 rounded-full ${item.backgroundColor} transition-[.5] hover:!-translate-y-1 hover:scale-110`}
-                  initial={{ opacity: 0, scale: 1 }} // Initial position (opacity 0, y-axis offset 20px, and slightly smaller)
-                  animate={{ opacity: 1, scale: 0.8 }} // Target position (fully opaque, no offset, and original size)
-                  transition={{ delay: index * staggerDelay, duration: 0.5 }} // Stagger the animation delay based on index and set duration
-                >
-                  {item.icon}
-                </motion.a>
-              ))}
+            {/* Logo and branding */}
+            <div className="flex flex-col gap-2">
+              <LogoImage className="!w-[60px] lg:!w-[100px] rounded-sm" />
+              {/* <span className="text-black font-semibold text-lg italic tracking-tighter">
+                {CompanyName}
+              </span> */}
             </div>
           </div>
 
@@ -175,22 +166,12 @@ const Footer = () => {
         <section className="flex flex-col justify-between gap-3 sm:gap-6 mt-2 px-4 xs:px-6 sm:px-10">
           <div className="flex w-full justify-between items-end gap-4">
             <div className="">
-              <LogoImage className="!w-[30px] lg:!w-[30px]" />
-            </div>
-
-            <div className="flex gap-1 h-fit">
-              {footer1socialMediaIcons.map((item, index) => (
-                <motion.a
-                  href={item.link}
-                  key={index}
-                  className={`p-1 rounded-full ${item.backgroundColor} transition-[.5] hover:!-translate-y-1 hover:scale-110`}
-                  initial={{ opacity: 0, scale: 1 }} // Initial position (opacity 0, y-axis offset 20px, and slightly smaller)
-                  animate={{ opacity: 1, scale: 0.8 }} // Target position (fully opaque, no offset, and original size)
-                  transition={{ delay: index * staggerDelay, duration: 0.5 }} // Stagger the animation delay based on index and set duration
-                >
-                  {item.icon}
-                </motion.a>
-              ))}
+              <div className="flex flex-col gap-1">
+                <LogoImage className="!w-[35px] lg:!w-[30px]" />
+                <span className="text-black font-semibold text-sm italic tracking-tighter">
+                  {CompanyName}
+                </span>
+              </div>
             </div>
           </div>
 

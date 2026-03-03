@@ -135,12 +135,7 @@ const Header = () => {
           </nav>
 
           {/* Center Logo */}
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-[0.2em] text-black uppercase">
-            LOGO
-          </Link>
-
+          <LogoImage className="!w-[60px] lg:!w-[100px] rounded-sm" />
           {/* Right Nav Links + Icons */}
           <div className="flex items-center gap-8">
             <nav className="flex items-center gap-8">
@@ -260,17 +255,17 @@ const Header = () => {
         <div className="hidden slg:block h-[3px] bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400" />
 
         {/* Mobile Header (Hidden on Laptop) */}
-        <div className="slg:hidden flex flex-col w-full px-3 sm:px-4 py-3 sm:py-4 gap-3 bg-black">
+        <div className="slg:hidden flex flex-col w-full px-3 sm:px-4 py-3 sm:py-4 gap-3 bg-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <FiMenu
-                className="text-2xl text-white"
+                className="text-2xl text-black"
                 onClick={() => setDrawerVisible(true)}
               />
-              <LogoImage className="!w-[30px] brightness-200" />
+              <LogoImage className="!w-[30px]" />
             </div>
             <div onClick={onOpenCart} className="relative">
-              <FiShoppingBag className="text-2xl text-white" />
+              <FiShoppingBag className="text-2xl text-black" />
               {totalItems > 0 && (
                 <span className="absolute -top-2 -right-2 size-4 bg-blue-600 rounded-full text-[9px] flex items-center justify-center text-white">
                   {totalItems}
