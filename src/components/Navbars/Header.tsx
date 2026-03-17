@@ -57,6 +57,7 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const { data: customer } = useCustomer("");
   const wc_customer_info = useMemo(
@@ -163,11 +164,39 @@ const Header = () => {
 
             {/* Icons */}
             <div className="flex items-center gap-5 ml-4 border-l border-gray-200 pl-6">
-              <button
-                onClick={handleSearch}
-                className="text-gray-600 hover:text-black transition cursor-pointer">
-                <FiSearch className="text-lg" />
-              </button>
+              <div className="flex items-center">
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out flex items-center ${
+                    isSearchOpen ? "w-48 opacity-100 mr-2" : "w-0 opacity-0 mr-0"
+                  }`}
+                >
+                  <input
+                    type="text"
+                    placeholder="Search items..."
+                    className="w-full text-sm bg-gray-100 rounded-full px-4 py-1.5 border-transparent focus:border-gray-300 focus:bg-white focus:ring-0 outline-none transition-all"
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleSearch();
+                        setIsSearchOpen(false);
+                      }
+                    }}
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    if (isSearchOpen && searchValue) {
+                      handleSearch();
+                      setIsSearchOpen(false);
+                    } else {
+                      setIsSearchOpen(!isSearchOpen);
+                    }
+                  }}
+                  className="text-gray-600 hover:text-black transition cursor-pointer flex items-center justify-center">
+                  {isPending && isSearchOpen ? <ImSpinner2 className="text-lg animate-spin" /> : <FiSearch className="text-lg" />}
+                </button>
+              </div>
 
               {/* User Dropdown */}
               <Menu as="div" className="relative inline-block text-left">
